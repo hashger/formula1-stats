@@ -1,12 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+import ConstructorsChampionship from './ConstructorsChampionship';
 
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <ConstructorsChampionship/>
   </React.StrictMode>,
   document.getElementById('root')
 );

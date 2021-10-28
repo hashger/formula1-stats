@@ -1,18 +1,19 @@
 import React from 'react';
-import './App.css';
+import './ConstructorsChampionship.css';
 import {Barchart} from './charts/Barchart.jsx';
 import {constructorsColors} from './utils/constructorsColors';
 
 
 
-function App() {
-  //const [constructors, setConstructors] = React.useState([]);
+function ConstructorsChampionship() {
+  const [constructors, setConstructors] = React.useState([]);
+
+
   React.useEffect(() =>{
       fetch('http://ergast.com/api/f1/2021/constructorStandings.json')
-      .then(response =>  {return response.json()})
+      .then(response => response.json())
       .then(data =>{
           const dataConstructors = data.MRData.StandingsTable.StandingsLists[0].ConstructorStandings;
-          //setConstructors(dataConstructors);
 
         const constructorsArrayCurated =  dataConstructors.map(constructor =>{
 
@@ -24,7 +25,7 @@ function App() {
             }
           })
 
-        console.log(constructorsArrayCurated);
+        setConstructors(constructorsArrayCurated);
           
       })
       .catch( err => console.log(err));
@@ -33,9 +34,15 @@ function App() {
   
   return (
     <div className="App">
-      <Barchart />
+      <Barchart 
+        data = {constructors.map(constructor => constructor.points)}
+        labels ={constructors.map(constructor => constructor.name)}
+        colors = {constructors.map(constructor => constructor.color)}
+        title={'Constructors Championship'}
+
+      />
     </div>
   );
 }
 
-export default App;
+export default ConstructorsChampionship;
