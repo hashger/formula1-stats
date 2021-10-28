@@ -10,3 +10,5 @@ const constructorsColors = {
     alfa: '#990000',
     haas: '#ED1A3B',
 }
+
+export {constructorsColors};
