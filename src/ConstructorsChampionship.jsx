@@ -35,17 +35,23 @@ function ConstructorsChampionship() {
     }, [])
 
     const options = {
+      aspectRatio: 2,
       indexAxis: 'y',
       plugins:{
         legend:{
-          display: true,
+          display: false,
           position: 'bottom',
+          labels:{
+            font:{
+              size: 10,
+            }
+          }
           
         },
         title:{
           display: true,
           text:'Formula 1 Constructors Championship 2021',
-          color: 'white',
+          color: 'red',
           font:{
             size: 20,
           }
@@ -59,13 +65,37 @@ function ConstructorsChampionship() {
       datasets:{
         bar:{
           barPercentage: 1,}
-      }
-      // scales:{
-      //   y:{
-      //     title:{display:true},
-      //     text:'obo'
-      //   }
-      // },
+      },
+       scales:{
+         
+          x:{
+            display: true,
+            font:{
+             size: 5,
+           },
+           ticks:{
+             color:'red',
+             font:{
+               size: 10
+             }
+           },
+           grid:{
+             
+            tickColor: 'red',
+            borderColor: 'red',
+           }
+           
+          },
+          y:{
+            ticks:{
+              
+              font:{
+                size: 10
+              }
+            },
+          }
+        
+       },
     }
   
   return (

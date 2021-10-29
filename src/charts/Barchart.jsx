@@ -19,8 +19,11 @@ const Barchart = ({data, labels, colors, title, options, dataAlpha}) =>{
     const barChartOptions ={
         type: 'bar',
         data: {
-            labels: [''],
-            datasets: obo,
+            labels: labels,
+            datasets: [{
+                data: data,
+                backgroundColor:colors
+            }],
         },
         options:options,
     }
