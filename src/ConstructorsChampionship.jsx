@@ -7,6 +7,7 @@ import {constructorsColors} from './utils/constructorsColors';
 
 function ConstructorsChampionship() {
   const [constructors, setConstructors] = React.useState([]);
+  const [loading, setLoading] = React.useState(true);
 
 
   React.useEffect(() =>{
@@ -26,21 +27,88 @@ function ConstructorsChampionship() {
           })
 
         setConstructors(constructorsArrayCurated);
+        setLoading(false)
           
       })
       .catch( err => console.log(err));
   
     }, [])
+
+    const options = {
+      aspectRatio: 2,
+      indexAxis: 'y',
+      plugins:{
+        legend:{
+          display: false,
+          position: 'bottom',
+          labels:{
+            font:{
+              size: 10,
+            }
+          }
+          
+        },
+        title:{
+          display: true,
+          text:'Formula 1 Constructors Championship 2021',
+          color: 'red',
+          font:{
+            size: 20,
+          }
+        }
+      },
+      elements:{
+        bar:{
+          inflateAmount: 0,
+        }
+      },
+      datasets:{
+        bar:{
+          barPercentage: 1,}
+      },
+       scales:{
+         
+          x:{
+            display: true,
+            font:{
+             size: 5,
+           },
+           ticks:{
+             color:'red',
+             font:{
+               size: 10
+             }
+           },
+           grid:{
+             
+            tickColor: 'red',
+            borderColor: 'red',
+           }
+           
+          },
+          y:{
+            ticks:{
+              
+              font:{
+                size: 10
+              }
+            },
+          }
+        
+       },
+    }
   
   return (
     <div className="App">
-      <Barchart 
+      {!loading && <Barchart 
         data = {constructors.map(constructor => constructor.points)}
         labels ={constructors.map(constructor => constructor.name)}
         colors = {constructors.map(constructor => constructor.color)}
         title={'Constructors Championship'}
+        options={options}
+        dataAlpha= {constructors}
 
-      />
+      /> }
     </div>
   );
 }
