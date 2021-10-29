@@ -2,11 +2,12 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import ConstructorsChampionship from './ConstructorsChampionship';
+import DriversChampionship from './DriversChampionship.jsx';
 
 
 ReactDOM.render(
   <React.StrictMode>
-    <ConstructorsChampionship/>
+    <DriversChampionship/>
   </React.StrictMode>,
   document.getElementById('root')
 );
