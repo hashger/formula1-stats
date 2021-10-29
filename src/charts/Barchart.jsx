@@ -5,7 +5,7 @@ import Chart from 'chart.js/auto';
 
 
 
-const Barchart = ({data, labels, colors, title, options, dataAlpha}) =>{
+const Barchart = ({data, labels, colors, options, dataAlpha}) =>{
 
     const obo = dataAlpha.map( constructor =>{
         return{
